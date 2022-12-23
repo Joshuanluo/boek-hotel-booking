@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
-import "./components.scss";
+import "./search.scss";
 
 const options = ["Option 1", "Option 2"];
 
