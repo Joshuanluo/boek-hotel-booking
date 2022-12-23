@@ -5,7 +5,7 @@ import React from "react";
 
 const hotels = require("./hotels.json");
 const data = JSON.stringify(hotels);
-console.log(data);
+// console.log(data);
 const hotelCollectionRef = collection(db1, "hotels");
 
 const DataInit = () => {

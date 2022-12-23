@@ -1,14 +1,29 @@
-import React from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
+import firestoreCrud from "../../utils/firebase/firebase.crud";
 
 const Hotels = () => {
-	const q = query(collection(db, "hotels"), where("city", "==", true));
-	const querySnapshot = getDocs(q);
-	querySnapshot.forEach((doc) => {
-		// doc.data() is never undefined for query doc snapshots
-		console.log(doc.id, " => ", doc.data());
-	});
-	return <div>Hotels</div>;
+	const params = useParams();
+	const [hotels, setHotels] = useState([]);
+
+
+	useEffect(() => {
+		firestoreCrud.getHotelsByLocation(params.location).then((data) => setHotels(data));
+	}, []);
+	return (
+		<div>
+			<h1>Hotels</h1>
+			{hotels.map((hotel) => {
+				return (
+					<div key={hotel.name}>
+						{" "}
+						<h1>Name:{hotel.name}</h1>
+					</div>
+				);
+			})}
+		</div>
+	);
 };
 
 export default Hotels;
