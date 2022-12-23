@@ -9,10 +9,10 @@ const Home = () => {
 	return (
 		<div className="home">
 			<Search />
-			<hr />
-			<DisplayImg />
-			<hr />
-			<DataInit />
+			{/* <hr /> */}
+			{/* <DisplayImg />
+			<hr /> */}
+			{/* <DataInit /> */}
 		</div>
 	);
 };

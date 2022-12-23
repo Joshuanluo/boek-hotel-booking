@@ -12,7 +12,7 @@ const Navigation = () => {
 		<div>
 			<div className="navigation">
 				<Link className="logo-container" to="/">
-					<div>Logo</div>
+					<div className="logo">BOEK</div>
 				</Link>
 
 				{currentUser ? (
@@ -20,17 +20,18 @@ const Navigation = () => {
 						<Link className="nav-link" to={`/orders/${currentUser.uid}`}>
 							Orders
 						</Link>
-						<span onClick={signOutUser}>
+						|
+						<Link className="nav-link" onClick={signOutUser}>
 							{`  ${currentUser.displayName}, `}sign out{" "}
-						</span>
+						</Link>
 					</div>
 				) : (
 					<div className="nav-links-container">
 						<Link className="nav-link" to="/signup">
 							Join us
-						</Link>
+						</Link>|
 						<Link className="nav-link" to="/login">
-							sign in
+							Sign in
 						</Link>
 					</div>
 				)}

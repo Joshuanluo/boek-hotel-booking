@@ -1,49 +1,49 @@
 
-.home {
-	.home_container {
-		width: 100%;
-		height: 500px;
-		background-image: url(../../assets/home_bg.jpg);
-		background-size: cover;
-		background-position: center center;
-		// position: relative;
-		.form_container {
-			// position: absolute;
-            margin: 0 auto;
-			height: 450px;
-			width: 600px;
-			// top: 50%;
-			// left: 50%;
-			// transform: translate(-50%, -50%);
-			background-color: rgba(255, 255, 255, 0.3);
-			border-radius: 0.5em;
-			h1 {
-				text-align: center;
-			}
-			.form_bg {
-				@extend .form_container;
-				// margin: 0,auto;
-				// bottom: 0%;
-				// left: 50%;
-				// transform: translate(-50%, 0%);
-				width: 540px;
-				height: 200px;
-				background-color: white;
-			}
-			// .search_form {
-			// 	position: absolute;
-			// 	margin: 0 auto;
-			// 	top: 50%;
-				// left: 50%;
-				// transform: translate(5%, -50%);
-				// input{
-				//     margin: 10px;
-				//     width: 300px;
-				//     height: 45px;
+// .home {
+// 	.home_container {
+// 		width: 100%;
+// 		height: 500px;
+// 		background-image: url(../../assets/home_bg.jpg);
+// 		background-size: cover;
+// 		background-position: center center;
+// 		// position: relative;
+// 		.form_container {
+// 			// position: absolute;
+//             margin: 0 auto;
+// 			height: 450px;
+// 			width: 600px;
+// 			// top: 50%;
+// 			// left: 50%;
+// 			// transform: translate(-50%, -50%);
+// 			background-color: rgba(255, 255, 255, 0.3);
+// 			border-radius: 0.5em;
+// 			h1 {
+// 				text-align: center;
+// 			}
+// 			.form_bg {
+// 				@extend .form_container;
+// 				// margin: 0,auto;
+// 				// bottom: 0%;
+// 				// left: 50%;
+// 				// transform: translate(-50%, 0%);
+// 				width: 540px;
+// 				height: 200px;
+// 				background-color: white;
+// 			}
+// 			// .search_form {
+// 			// 	position: absolute;
+// 			// 	margin: 0 auto;
+// 			// 	top: 50%;
+// 				// left: 50%;
+// 				// transform: translate(5%, -50%);
+// 				// input{
+// 				//     margin: 10px;
+// 				//     width: 300px;
+// 				//     height: 45px;
 
-				// }
+// 				// }
 				
-			// }
-		}
-	}
-}
+// 			// }
+// 		}
+// 	}
+// }

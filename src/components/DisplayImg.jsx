@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
-import chicken from "../assets/chicken.png";
-import cow from "../assets/cow.png";
-import dog from "../assets/dog.png";
+// import chicken from "../assets/chicken.png";
+// import cow from "../assets/cow.png";
+// import dog from "../assets/dog.png";
 
 const DisplayImg = () => {
-	const images = [chicken, cow, dog];
+	// const images = [chicken, cow, dog];
 	const settings = {
 		dots: true,
 		infinite: true,
