@@ -9,6 +9,7 @@ import Hotels from "../routes/hotels/Hotels";
 import Reservation from "../routes/reservation/Reservation";
 import Rooms from "../routes/rooms/Rooms";
 import Order from "../routes/order/Order";
+import Orders from "../routes/orders/Orders";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 						<Route path="hotels/:hotel/reservation" element={<Reservation />}></Route>
 						<Route path="hotels/:hotel/reservation/:date" element={<Rooms />}></Route>
 						<Route path="hotels/:hotel/reservation/:date/:room" element={<Order />}></Route>
+						<Route path="Orders/:uid" element={<Orders />}></Route>
 						
 					</Route>
 			</Routes>
