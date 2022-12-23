@@ -1,51 +1,25 @@
 import React from "react";
+import "../calendar.css";
 
 const Calendar = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-  
-    const weeks = [];
-    let week = [];
-  
-    for (let i = 1; i <= daysInMonth; i++) {
-      const currentDay = new Date(year, month, i);
-  
-      if (currentDay.getDay() === 0 && week.length > 0) {
-        weeks.push(week);
-        week = [];
-      }
-  
-      week.push(currentDay);
-  
-      if (currentDay.getDay() === 6 && i !== daysInMonth) {
-        weeks.push(week);
-        week = [];
-      }
-    }
-  
-    return (
-      <div className="calendar">
-        {weeks.map((week, index) => (
-          <div key={index} className="week">
-            {week.map((day) => {
-              const year = day.getFullYear();
-              const month = day.getMonth();
-              const date = day.getDate();
-              const className =
-                month === currentMonth ? 'day' : 'day other-month';
-  
-              return (
-                <div key={`${year}-${month}-${date}`} className={className}>
-                  {date}
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </div>
-    );
+	const date = new Date();
+	const currentMonth = date.getMonth();
+	const currentYear = date.getFullYear();
+	console.log(date, currentMonth, currentYear);
+
+	// 获取当前月份的日期数组
+	const datesInCurrentMonth = [];
+	for (let i = 1; i <= new Date(currentYear, currentMonth + 1, 0).getDate(); i++) {
+		datesInCurrentMonth.push(i);
+	}
+
+	return (
+		<div className="calendar">
+			{datesInCurrentMonth.map((date) => (
+				<div className="calendar-date" key={date}>{date}</div>
+			))}
+		</div>
+	);
 };
 
 export default Calendar;
