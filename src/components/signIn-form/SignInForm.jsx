@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
-
+import "./signInForm.scss"
 import {
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
@@ -33,6 +33,7 @@ const SignInForm = () => {
 			// console.log(response);
 
 			resetFormFields();
+			
 		} catch (error) {
 			switch (error.code) {
 				case "auth/wrong-password":
@@ -54,9 +55,9 @@ const SignInForm = () => {
 	};
 
 	return (
-		<div className="sign-up-container">
-			<h1>Sign in with your email and password</h1>
-			<span></span>
+		<div className="signinform_container">
+			<h1>Sign in </h1>
+			{/* <span></span>
 			<form onSubmit={handleSubmit}>
 				<label>Email</label>
 				<input type="email" required onChange={handleChange} name="email" value={email} />
@@ -75,7 +76,40 @@ const SignInForm = () => {
 						Google sign in
 					</button>
 				</div>
-			</form>
+			</form> */}
+			<Form onSubmit={handleSubmit}>
+
+				<Form.Group className="mb-3">
+					<Form.Label>Email address</Form.Label>
+					<Form.Control
+						type="email"
+						placeholder="Enter email"
+						required
+						onChange={handleChange}
+						name="email"
+						value={email}
+					/>
+				</Form.Group>
+
+				<Form.Group className="mb-3">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type="password"
+						placeholder="Password"
+						required
+						onChange={handleChange}
+						name="password"
+						value={password}
+					/>
+				</Form.Group>
+				<Button variant="primary" type="submit">
+					Sign up
+				</Button>
+				<Button variant="primary" type="button" buttontype="google" onClick={signInWithGoogle}>
+						Google sign in
+				</Button>
+			</Form>
+			
 		</div>
 	);
 };
