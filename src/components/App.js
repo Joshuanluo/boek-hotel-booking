@@ -1,11 +1,12 @@
 import Calendar from './Calendar';
 import MonthCalendar from './MonthCalendar';
 import '../App.css';
+import Home from '../routes/home/Home';
 
 function App() {
   return (
     <div className="App">
-      <MonthCalendar />
+      coming soon
     </div>
   );
 }
