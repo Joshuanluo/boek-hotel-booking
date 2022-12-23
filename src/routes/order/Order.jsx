@@ -22,16 +22,18 @@ const Order = () => {
 		});
 	}, []);
 	if (!currentUser) return <SignIn />;
-	const handleClick = () => {
+	const handleClick = async() => {
 		// console.log(res);
 		// console.log(currentUser.uid, params.hotel, params.room, params.date);
-		setRes({
+		const res = {
 			start: Timestamp.fromDate(date),
 			user_id: currentUser.uid,
 			end: Timestamp.fromDate(tomorrow),
 			room_no: params.room,
-		});
-		firestoreCrud.addOrderbyHotel(hotelId, res);
+		};
+        setRes(res); //async
+		await firestoreCrud.addOrderbyHotel(hotelId, res);
+
 		navigate(`/Orders/${currentUser.uid}`);
 	};
 

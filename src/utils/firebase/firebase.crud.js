@@ -13,7 +13,7 @@ const firestoreCrud = {
 		return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 	},
 	async addOrderbyHotel(id, res) {
-		await addDoc(collection(db1, `hotels/${id}/reservations`), res);
+		await addDoc(collection(db1, `hotels/${id}/reservations`), res)
 		
 	},
 };
