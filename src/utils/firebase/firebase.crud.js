@@ -7,11 +7,12 @@ const firestoreCrud = {
 		const data = await getDocs(q);
 		return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 	},
-	async getReservationsByHotel() {
-		// const query = collection(db1, "hotels/CXENyYJapbDLjYTECNxT/reservations");
-		// const [docs, loading, error] = useCollectionData(query);
-		// console.log(docs);
+	async getDocByHotel(hotel) {
+		const q = query(collection(db1, "hotels"), where("name", "==", hotel));
+		const data = await getDocs(q);
+		return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 	},
+	
 };
 
 export default firestoreCrud;

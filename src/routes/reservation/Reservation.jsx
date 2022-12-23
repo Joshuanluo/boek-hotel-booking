@@ -9,18 +9,23 @@ import { db1 } from "../../utils/firebase/firebase.utils";
 import Calendar from "../../components/calendar/Calendar";
 const Reservation = () => {
 	const params = useParams();
-	const [reservations, setReservations] = useState();
-	const query = collection(db1, "hotels/CXENyYJapbDLjYTECNxT/reservations");
-	const [docs, loading, error] = useCollectionData(query);
+	const [hotelDoc, setHotelDoc] = useState(null);
+	const [rooms, setRooms] = useState(null);
 	// console.log(docs[0]);
 	// console.log(docs[0].start.toDate() > docs[0].end.toDate());
-	// useEffect(() => {
-		// firestoreCrud.getReservationsByHotel(params.hotel);
-	// }, []);
+
+	useEffect(() => {
+		firestoreCrud.getDocByHotel(params.hotel).then((data) => {
+			setHotelDoc(data[0].id);
+			setRooms(data[0].rooms_id)
+		});
+	}, []);
+	const query = collection(db1, `hotels/${hotelDoc}/reservations`);
+	const [docs, loading, error] = useCollectionData(query);
 	return (
 		<div>
 			<h1>Reservation</h1>
-			<MonthCalendar reser_info={docs} hotel={params.hotel}/>
+			<MonthCalendar reser_info={docs} hotel={params.hotel} rooms={rooms} />
 			<hr />
 			{/* <Calendar /> */}
 		</div>

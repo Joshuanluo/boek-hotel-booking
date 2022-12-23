@@ -1,5 +1,6 @@
 import React from "react";
 import DateButton from "../dateButton/DateButton";
+import _ from "underscore";
 
 const MonthCalendar = (props) => {
 	// console.log(props.reser_info);
@@ -9,6 +10,12 @@ const MonthCalendar = (props) => {
 
 	// const { currentDate } = props;
 	const currentDate = new Date();
+
+	// currentDate.setHours(24);
+	// currentDate.setMinutes(0);
+	// currentDate.setSeconds(0);
+	// currentDate.setMilliseconds(0);
+	const totalRooms = props.rooms;
 	const currentYear = currentDate.getFullYear();
 	const currentMonth = currentDate.getMonth();
 	// console.log(currentDate.getTime());
@@ -50,6 +57,10 @@ const MonthCalendar = (props) => {
 
 	let dates = [];
 
+	const yesterDate = (date) => {
+		return date.setDate(date.getDate() - 1);
+	};
+
 	const isAvailable = (date) => {
 		const results = props.reser_info.map((reservation) =>
 			date >= reservation.start.toDate() && date <= reservation.end.toDate() ? false : true
@@ -60,6 +71,19 @@ const MonthCalendar = (props) => {
 		}
 		return true;
 	};
+
+	const availableRoom = (date) => {
+		const orderedRooms = props.reser_info.map((reservation) =>
+			date >= yesterDate(reservation.start.toDate()) &&
+			date <= yesterDate(reservation.end.toDate())
+				? reservation.room_no
+				: null
+		);
+
+		const result = _(totalRooms).difference(_(orderedRooms).uniq());
+		return result;
+	};
+
 	// console.log(isAvailable(currentDate));
 
 	// dates of last month
@@ -80,6 +104,7 @@ const MonthCalendar = (props) => {
 		}
 	}
 	// console.log(dates);
+	// console.log(props.reser_info);
 
 	return (
 		<div className="calendar-container">
@@ -94,8 +119,13 @@ const MonthCalendar = (props) => {
 				<div className="calendar-date">Saturday</div>
 
 				{dates.map((date) =>
-					isAvailable(date) && date >= currentDate ? (
-						<DateButton date={date} hotel={props.hotel} key={`${date.getMonth()}_${date.getDate()}`}/>
+					availableRoom(date).length !== 0 && date >= currentDate ? (
+						<DateButton
+							date={date}
+							hotel={props.hotel}
+							avil_rooms={availableRoom(date)}
+							key={`${date.getMonth()}_${date.getDate()}`}
+						/>
 					) : (
 						<div
 							className="calendar-date date-cannot-choose"
