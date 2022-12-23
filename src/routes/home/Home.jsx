@@ -3,6 +3,7 @@ import DisplayImg from "../../components/DisplayImg";
 import "./home.scss";
 
 import Search from "../../components/search/Search";
+import DataInit from "../../utils/firebase/dataInit";
 
 const Home = () => {
 	return (
@@ -10,6 +11,8 @@ const Home = () => {
 			<Search />
 			<hr />
 			<DisplayImg />
+			<hr />
+			<DataInit />
 		</div>
 	);
 };
