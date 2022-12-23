@@ -1,0 +1,24 @@
+.calendar-container {
+	margin: 0 auto;
+	h1 {
+		text-align: center;
+	}
+}
+
+.calendar {
+	margin: 0 auto;
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+
+	.calendar-date {
+		height: 100px;
+		width: 13%;
+		border: 0.1em solid black;
+		display: block;
+	}
+
+    .date-cannot-choose{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}

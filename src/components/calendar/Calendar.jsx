@@ -1,5 +1,5 @@
 import React from "react";
-import "../calendar.css";
+import "./calendar.scss";
 
 const Calendar = () => {
 	const date = new Date();
@@ -14,10 +14,14 @@ const Calendar = () => {
 	}
 
 	return (
-		<div className="calendar">
-			{datesInCurrentMonth.map((date) => (
-				<div className="calendar-date" key={date}>{date}</div>
-			))}
+		<div className="calendar-container">
+			<div className="calendar">
+				{datesInCurrentMonth.map((date) => (
+					<div className="calendar-date" key={date}>
+						{date}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };
