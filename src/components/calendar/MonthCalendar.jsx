@@ -1,10 +1,19 @@
-import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
+
 import React from "react";
 
+
+
 const MonthCalendar = (props) => {
+	// console.log(props.reser_info);
+	if (!props.reser_info) {
+		return <div>Loading...</div>;
+	}
+
 	// const { currentDate } = props;
 	const currentDate = new Date();
-	console.log(currentDate.getTime());
+	const currentYear = currentDate.getFullYear();
+	const currentMonth = currentDate.getMonth();
+	// console.log(currentDate.getTime());
 	const month = [
 		"January",
 		"February",
@@ -20,16 +29,15 @@ const MonthCalendar = (props) => {
 		"December",
 	];
 
-	// 获取当月第一天是星期几
-	const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+	// get what day is the first day in this month
+	const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-	// 获取当月总天数
 	const daysInMonth = new Date(
 		currentDate.getFullYear(),
 		currentDate.getMonth() + 1,
 		0
 	).getDate();
-	// 获取上月总天数
+
 	const lastDayOfMonth = new Date(
 		currentDate.getFullYear(),
 		currentDate.getMonth(),
@@ -43,56 +51,37 @@ const MonthCalendar = (props) => {
 	).getDate();
 
 	let dates = [];
-	let count = 1;
 
 	const isAvailable = (date) => {
-		const reservations = props.reser_info;
-		const results = reservations.map((reservation) =>
+		const results = props.reser_info.map((reservation) =>
 			date >= reservation.start.toDate() && date <= reservation.end.toDate() ? false : true
 		);
-		return results;
-	};
-	console.log(isAvailable(currentDate));
-
-	// 填充上月的日期
-	for (let i = firstDayOfMonth - 1; i >= 0; i--) {
-		dates.push(
-			<div className="calendar-date date-cannot-choose" key={`last-month-${i}`}>
-				{daysInLastMonth - i}
-			</div>
-		);
-	}
-
-	// 填充当月的日期
-	const dayBeforeToday = currentDate.getDate() + firstDayOfMonth - 1;
-	for (let i = firstDayOfMonth; i < firstDayOfMonth + daysInMonth; i++) {
-		if (i < dayBeforeToday) {
-			dates.push(
-				<div className="calendar-date date-cannot-choose" key={`current-month-${i}`}>
-					{count}
-				</div>
-			);
-		} else {
-			dates.push(
-				<div className="calendar-date" key={`current-month-${i}`}>
-					{count}
-				</div>
-			);
+		console.log(results);
+		if (results.indexOf(true) === -1) {
+			return false;
 		}
+		return true;
+	};
+	// console.log(isAvailable(currentDate));
 
-		count++;
+	// dates of last month
+	for (let i = firstDayOfMonth - 1; i >= 0; i--) {
+		dates.push(new Date(currentYear, currentMonth - 1, daysInLastMonth - i));
 	}
 
-	// 填充下月的日期
+	// dates of this month
+
+	for (let i = 1; i < daysInMonth + 1; i++) {
+		dates.push(new Date(currentYear, currentMonth, i));
+	}
+
+	// dates of next month
 	if (lastDayOfMonth < 7) {
 		for (let i = 0; i < 6 - lastDayOfMonth; i++) {
-			dates.push(
-				<div className="calendar-date" key={`next-month-${i}`}>
-					{i + 1}
-				</div>
-			);
+			dates.push(new Date(currentYear, currentMonth + 1, i));
 		}
 	}
+	// console.log(dates);
 
 	return (
 		<div className="calendar-container">
@@ -105,11 +94,21 @@ const MonthCalendar = (props) => {
 				<div className="calendar-date">Thursday</div>
 				<div className="calendar-date">Friday</div>
 				<div className="calendar-date">Saturday</div>
-				{dates.slice(0, 7)}
-				{dates.slice(7, 14)}
-				{dates.slice(14, 21)}
-				{dates.slice(21, 28)}
-				{dates.slice(28)}
+
+				{dates.map((date) => (
+					(isAvailable(date) && date >= currentDate) ? (
+						<div className="calendar-date" key={`${date.getMonth()}_${date.getDate()}`}>
+							{date.getDate()}
+						</div>
+					) : (
+						<div
+							className="calendar-date date-cannot-choose"
+							key={`${date.getMonth()}_${date.getDate()}`}
+						>
+							{date.getDate()}
+						</div>
+					)
+				))}
 			</div>
 		</div>
 	);

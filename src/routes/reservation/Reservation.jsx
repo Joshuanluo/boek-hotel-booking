@@ -14,15 +14,15 @@ const Reservation = () => {
 	const [docs, loading, error] = useCollectionData(query);
 	// console.log(docs[0]);
 	// console.log(docs[0].start.toDate() > docs[0].end.toDate());
-	// useEffect(()=>{
-	//     firestoreCrud.getReservationsByHotel(params.hotel);
-	// },[])
+	// useEffect(() => {
+		// firestoreCrud.getReservationsByHotel(params.hotel);
+	// }, []);
 	return (
 		<div>
 			<h1>Reservation</h1>
-			<MonthCalendar reser_info={docs}/>
-            <hr />
-            {/* <Calendar /> */}
+			<MonthCalendar reser_info={docs} />
+			<hr />
+			{/* <Calendar /> */}
 		</div>
 	);
 };

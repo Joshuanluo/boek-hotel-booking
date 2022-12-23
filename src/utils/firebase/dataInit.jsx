@@ -3,10 +3,10 @@ import { db1 } from "./firebase.utils";
 import React from "react";
 
 
-const hotels = require("./hotels.json");
+const hotels = require("./hotels_resvations.json");
 const data = JSON.stringify(hotels);
 // console.log(data);
-const hotelCollectionRef = collection(db1, "hotels");
+const hotelCollectionRef = collection(db1, "hotels1");
 
 const DataInit = () => {
 	const handleClick = () => {
