@@ -1,0 +1,39 @@
+{
+	"city": "Sydney",
+	"hotels": [
+		{
+			"name": "Hillton",
+			"rooms": [
+				{
+					"type": "standard",
+					"count": 50,
+					"available": 40,
+					"price": 110
+				},
+				{
+					"type": "deluxe",
+					"count": 20,
+					"available": 15,
+					"price": 210
+				}
+			]
+		},
+		{
+			"name": "Mariott",
+			"rooms": [
+				{
+					"type": "standard",
+					"count": 60,
+					"available": 55,
+					"price": 100
+				},
+				{
+					"type": "deluxe",
+					"count": 30,
+					"available": 25,
+					"price": 200
+				}
+			]
+		}
+	]
+}

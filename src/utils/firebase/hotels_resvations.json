@@ -1,0 +1,39 @@
+{
+	"city": "Sydney",
+	"hotels": [
+		{
+			"name": "Hillton",
+			"reservations": [
+				{
+					"start": "2022-12-1",
+					"end": "2022-12-10",
+					"uid": 1,
+					"roomno":"A101"
+
+				},
+				{
+					"start": "2022-12-11",
+					"end": "2022-12-20",
+					"uid": 2
+				}
+			]
+		},
+		{
+			"name": "Mariott",
+			"rooms": [
+				{
+					"type": "standard",
+					"count": 60,
+					"available": 55,
+					"price": 100
+				},
+				{
+					"type": "deluxe",
+					"count": 30,
+					"available": 25,
+					"price": 200
+				}
+			]
+		}
+	]
+}

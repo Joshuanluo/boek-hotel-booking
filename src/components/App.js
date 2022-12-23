@@ -6,6 +6,7 @@ import {Routes, Route } from "react-router-dom";
 import Navigation from "../routes/navigation/Navigation"
 import SignIn from "../routes/signIn/SignIn";
 import Hotels from "../routes/hotels/Hotels";
+import Reservation from "../routes/reservation/Reservation";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 						<Route path="mc" element={<MonthCalendar />}></Route>
 						<Route path="login" element={<SignIn />}></Route>
 						<Route path="hotels/:location" element={<Hotels />}></Route>
+						<Route path="hotels/:hotel/reservation" element={<Reservation />}></Route>
 						
 					</Route>
 			</Routes>
