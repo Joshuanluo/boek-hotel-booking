@@ -73,7 +73,12 @@ const MonthCalendar = (props) => {
 	};
 
 	const availableRoom = (date) => {
-		const orderedRooms = props.reser_info.map((reservation) => (date >= yesterDate(reservation.start.toDate()) && date <= yesterDate(reservation.end.toDate())) ? reservation.room_no : null);
+		const orderedRooms = props.reser_info.map((reservation) =>
+			date >= yesterDate(reservation.start.toDate()) &&
+			date <= yesterDate(reservation.end.toDate())
+				? reservation.room_no
+				: null
+		);
 
 		const result = _(totalRooms).difference(_(orderedRooms).uniq());
 		return result;

@@ -20,7 +20,10 @@ const firestoreCrud = {
 		await addDoc(collection(db1, `users/${uid}/reservations`), res);
 	},
 	async getOrdersByUserId(uid) {
-		await getDocs(collection(db1, `users/${uid}/reservations`));
+		const q = query(collection(db1, `users/${uid}/reservations`));
+		const data = await getDocs(q);
+		// console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+		return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 	},
 };
 
