@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Boek
+Boek is a hotel booking website that allows users to search for hotels in different cities by city name. Users can click on a hotel to select the desired dates, and then book a room after choosing the available dates.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is built with React, Firebase, Sass, MUI, and underscore.
 
-## Available Scripts
+## Features
+* Search for hotels by city name
+* View and select available dates for booking
+* Book a room at the selected hotel
+## Getting Started
+To get started with the project, follow these steps:
 
-In the project directory, you can run:
 
-### `npm start`
+1. Clone the repository:
+```
+git clone https://github.com/Joshuanluo/boek-hotel-booking.git
+```
+2. Install the dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+npm install
+```
+3. Start the development server:
+```
+npm start
+```
+4. Open http://localhost:3000 to view the app in the browser.
+## Built With
+* [![React][react.js]][react-url] - A JavaScript library for building user interfaces
+* [![Firebase][firebase.js]][firebase-url] - A cloud-based platform for hosting and managing applications
+* [![Sass][sass.js]][sass-url] - A CSS preprocessor for styling the application
+* [![Mui][mui.js]][mui-url] - A CSS framework for creating responsive layouts
+* [![Underscore][underscore.js]][underscore-url] - A JavaScript library for functional programming
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
+To contribute to the project, please follow the GitHub Flow workflow:
 
-### `npm test`
+Fork the repository
+Create a new branch for your feature
+Commit your changes
+Open a pull request
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[firebase.js]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=firebase&logoColor=FFCB2C
+[firebase-url]: https://firebase.google.com/
+[mui.js]: https://img.shields.io/badge/MUI-20232A?style=for-the-badge&logo=MUI&logoColor=007FFF
+[mui-url]: https://mui.com
+[sass.js]: https://img.shields.io/badge/sass-20232A?style=for-the-badge&logo=sass
+[sass-url]: https://sass-lang.com/
+[underscore.js]: https://img.shields.io/badge/__underscore-20232A?style=for-the-badge
+[underscore-url]: https://underscorejs.org/
