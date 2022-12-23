@@ -9,14 +9,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/Home";
 import MonthCalendar from "./components/MonthCalendar";
 import Navigation from "./routes/navigation/Navigation";
-import Login from "./components/Login";
+import SignIn from "./routes/signIn/SignIn";
 const routes = (
 	<Router>
 		<Routes>
 			<Route path="/" element={<Navigation />}>
 				<Route index element={<Home />}></Route>
 				<Route path="mc" element={<MonthCalendar />}></Route>
-				<Route path="login" element={<Login />}></Route>
+				<Route path="login" element={<SignIn />}></Route>
 				
 			</Route>
 		</Routes>
