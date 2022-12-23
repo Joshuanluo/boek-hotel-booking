@@ -20,7 +20,7 @@ const Reservation = () => {
 	return (
 		<div>
 			<h1>Reservation</h1>
-			<MonthCalendar reser_info={docs} />
+			<MonthCalendar reser_info={docs} hotel={params.hotel}/>
 			<hr />
 			{/* <Calendar /> */}
 		</div>

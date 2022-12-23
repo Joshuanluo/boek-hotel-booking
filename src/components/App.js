@@ -7,6 +7,7 @@ import Navigation from "../routes/navigation/Navigation"
 import SignIn from "../routes/signIn/SignIn";
 import Hotels from "../routes/hotels/Hotels";
 import Reservation from "../routes/reservation/Reservation";
+import Rooms from "../routes/rooms/Rooms";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 						<Route path="login" element={<SignIn />}></Route>
 						<Route path="hotels/:location" element={<Hotels />}></Route>
 						<Route path="hotels/:hotel/reservation" element={<Reservation />}></Route>
+						<Route path="hotels/:hotel/reservation/:date" element={<Rooms />}></Route>
 						
 					</Route>
 			</Routes>

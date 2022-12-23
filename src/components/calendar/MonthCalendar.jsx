@@ -1,7 +1,5 @@
-
 import React from "react";
-
-
+import DateButton from "../dateButton/DateButton";
 
 const MonthCalendar = (props) => {
 	// console.log(props.reser_info);
@@ -56,7 +54,7 @@ const MonthCalendar = (props) => {
 		const results = props.reser_info.map((reservation) =>
 			date >= reservation.start.toDate() && date <= reservation.end.toDate() ? false : true
 		);
-		console.log(results);
+		// console.log(results);
 		if (results.indexOf(true) === -1) {
 			return false;
 		}
@@ -95,11 +93,9 @@ const MonthCalendar = (props) => {
 				<div className="calendar-date">Friday</div>
 				<div className="calendar-date">Saturday</div>
 
-				{dates.map((date) => (
-					(isAvailable(date) && date >= currentDate) ? (
-						<div className="calendar-date" key={`${date.getMonth()}_${date.getDate()}`}>
-							{date.getDate()}
-						</div>
+				{dates.map((date) =>
+					isAvailable(date) && date >= currentDate ? (
+						<DateButton date={date} hotel={props.hotel} key={`${date.getMonth()}_${date.getDate()}`}/>
 					) : (
 						<div
 							className="calendar-date date-cannot-choose"
@@ -108,7 +104,7 @@ const MonthCalendar = (props) => {
 							{date.getDate()}
 						</div>
 					)
-				))}
+				)}
 			</div>
 		</div>
 	);
