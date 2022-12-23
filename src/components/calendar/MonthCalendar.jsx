@@ -1,6 +1,8 @@
 import React from "react";
 import DateButton from "../dateButton/DateButton";
 import _ from "underscore";
+import "./monthCalendar.scss";
+
 
 const MonthCalendar = (props) => {
 	// console.log(props.reser_info);
@@ -110,13 +112,13 @@ const MonthCalendar = (props) => {
 		<div className="calendar-container">
 			<h1>{month[currentDate.getMonth()]}</h1>
 			<div className="calendar">
-				<div className="calendar-date">Sunday</div>
-				<div className="calendar-date">Monday</div>
-				<div className="calendar-date">Tuesday</div>
-				<div className="calendar-date">Wednesday</div>
-				<div className="calendar-date">Thursday</div>
-				<div className="calendar-date">Friday</div>
-				<div className="calendar-date">Saturday</div>
+				<div className="calendar-day">Sunday</div>
+				<div className="calendar-day">Monday</div>
+				<div className="calendar-day">Tuesday</div>
+				<div className="calendar-day">Wednesday</div>
+				<div className="calendar-day">Thursday</div>
+				<div className="calendar-day">Friday</div>
+				<div className="calendar-day">Saturday</div>
 
 				{dates.map((date) =>
 					availableRoom(date).length !== 0 && date >= currentDate ? (

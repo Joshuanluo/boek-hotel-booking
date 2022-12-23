@@ -11,6 +11,7 @@ import {
 	onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_API_KEY,
@@ -32,6 +33,9 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
+export const storage = getStorage(firebaseApp);
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 

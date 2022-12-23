@@ -1,4 +1,3 @@
-import Calendar from "./calendar/Calendar";
 import MonthCalendar from "./calendar/MonthCalendar";
 import "../App.css";
 import Home from "../routes/home/Home";

@@ -11,13 +11,21 @@
 	display: flex;
 	flex-wrap: wrap;
 
+	.calendar-day{
+		height: 50px;
+		width: 13%;
+		border: 0.01em solid rgba(0, 0, 0, 0.2);
+		display: block;
+	}
 	.calendar-date {
 		height: 100px;
 		width: 13%;
-		border: 0.1em solid black;
+		border: 0.01em solid rgba(0, 0, 0, 0.2);
 		display: block;
+		
 	}
 
+	
     .date-cannot-choose{
         background-color: rgba(0, 0, 0, 0.2);
     }

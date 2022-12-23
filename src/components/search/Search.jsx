@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import "./search.scss";
 import { useNavigate } from "react-router";
 
-const options = ["Sydney", "Melbourne"];
+const options = ["Sydney", "Melbourne","Perth"];
 
 const Search = () => {
 	const [value, setValue] = useState(options[0]);

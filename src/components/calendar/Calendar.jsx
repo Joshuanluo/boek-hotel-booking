@@ -1,5 +1,5 @@
 import React from "react";
-import "./calendar.scss";
+import "./monthCalendar.scss";
 
 const Calendar = () => {
 	const date = new Date();
