@@ -3,18 +3,27 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
 import "./search.scss";
+import { useNavigate } from "react-router";
 
-const options = ["Option 1", "Option 2"];
+const options = ["Sydney", "Melbourne"];
 
 const Search = () => {
 	const [value, setValue] = useState(options[0]);
 	const [inputValue, setInputValue] = useState("");
+	const [errMessage,setErrMessage]=useState("")
+	const navigate = useNavigate();
+	const handleSearch = () => {
+		if (inputValue) {
+			navigate(`/hotels/${inputValue}`);
+		}else {
+			setErrMessage("Please enter valid location")
+		}
+	};
 
 	return (
 		<div className="search_container">
-			<div className="error_info">
-				<div>{`value: ${value !== null ? `'${value}'` : "null"}`}</div>
-				<div>{`inputValue: '${inputValue}'`}</div>
+			<div className="error_message">
+				{errMessage}
 			</div>
 			<br />
 			<div className="search_main">
@@ -33,7 +42,7 @@ const Search = () => {
 					sx={{ width: 350, height: 50 }}
 					renderInput={(params) => <TextField {...params} label="Location" />}
 				/>
-				<Button variant="contained" className="main_btn" onClick={() => console.log(inputValue)}>
+				<Button variant="contained" className="main_btn" onClick={handleSearch}>
 					search
 				</Button>
 			</div>

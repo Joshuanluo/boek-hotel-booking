@@ -5,7 +5,7 @@ import Home from "../routes/home/Home";
 import {Routes, Route } from "react-router-dom";
 import Navigation from "../routes/navigation/Navigation"
 import SignIn from "../routes/signIn/SignIn";
-
+import Hotels from "../routes/hotels/Hotels";
 
 function App() {
 	return (
@@ -15,6 +15,8 @@ function App() {
 						<Route index element={<Home />}></Route>
 						<Route path="mc" element={<MonthCalendar />}></Route>
 						<Route path="login" element={<SignIn />}></Route>
+						<Route path="hotels/:location" element={<Hotels />}></Route>
+						
 					</Route>
 			</Routes>
 		</div>
