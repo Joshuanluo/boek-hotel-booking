@@ -13,7 +13,7 @@ const Order = () => {
 	const tomorrow = new Date(date.getTime() + 24 * 60 * 60 * 1000);
 	// console.log(tomorrow, typeof tomorrow)
 	const [hotelId, setHotelId] = useState("");
-	const [res, setRes] = useState({});
+	// const [res, setRes] = useState({});
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -31,9 +31,16 @@ const Order = () => {
 			end: Timestamp.fromDate(tomorrow),
 			room_no: params.room,
 		};
-        setRes(res); //async
-		await firestoreCrud.addOrderbyHotel(hotelId, res);
-
+        const orderId= await firestoreCrud.addOrderbyHotel(hotelId, res);
+        const user_res = {
+			start: Timestamp.fromDate(date),
+            hotel:params.hotel,
+			order_id: orderId,
+			end: Timestamp.fromDate(tomorrow),
+			room_no: params.room,
+		};
+        // setRes(res); //async
+        firestoreCrud.addOrderForUser(currentUser.uid,user_res)
 		navigate(`/Orders/${currentUser.uid}`);
 	};
 
