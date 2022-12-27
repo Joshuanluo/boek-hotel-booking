@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, } from "react";
 import { useParams } from "react-router";
 import SignInForm from "../../components/signIn-form/SignInForm";
 import { UserContext } from "../../contexts/UserContext";
-import firestoreCrud from "../../utils/firebase/firebase.crud";
+
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
+import { collection,} from "firebase/firestore";
 import { db1 } from "../../utils/firebase/firebase.utils";
 
 const Orders = () => {
@@ -13,13 +13,13 @@ const Orders = () => {
 	const { currentUser } = useContext(UserContext);
 	// const uid = currentUser.uid;
 	// console.log(currentUser.uid);
-	const [orders, setOrders] = useState({});
+
 
 	// useEffect(()=>{
 	//     setOrders(firestoreCrud.getOrdersByUserId(params.uid));
 	// },[])
 	const query = collection(db1, `users/${params.uid}/reservations`);
-	const [docs, loading, error] = useCollectionData(query);
+	const [docs] = useCollectionData(query);
 	console.log(docs);
 	if (!currentUser) return <SignInForm />;
 

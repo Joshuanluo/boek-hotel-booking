@@ -4,7 +4,7 @@ import MonthCalendar from "../../components/calendar/MonthCalendar";
 import firestoreCrud from "../../utils/firebase/firebase.crud";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
+import { collection, } from "firebase/firestore";
 import { db1 } from "../../utils/firebase/firebase.utils";
 const Reservation = () => {
 	const params = useParams();
@@ -20,7 +20,7 @@ const Reservation = () => {
 		});
 	}, []);
 	const query = collection(db1, `hotels/${hotelDoc}/reservations`);
-	const [docs, loading, error] = useCollectionData(query);
+	const [docs,] = useCollectionData(query);
 	return (
 		<div>
 			<h1>Reservation</h1>

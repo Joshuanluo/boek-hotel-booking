@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button';
 import "./signInForm.scss"
 import {
 	signInWithGooglePopup,
-	createUserDocumentFromAuth,
-	signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
@@ -29,7 +27,7 @@ const SignInForm = () => {
 		event.preventDefault();
 
 		try {
-			const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+			// const { user } = await signInAuthUserWithEmailAndPassword(email, password);
 			// console.log(response);
 
 			resetFormFields();

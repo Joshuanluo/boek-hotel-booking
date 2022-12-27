@@ -63,16 +63,7 @@ const MonthCalendar = (props) => {
 		return date.setDate(date.getDate() - 1);
 	};
 
-	const isAvailable = (date) => {
-		const results = props.reser_info.map((reservation) =>
-			date >= reservation.start.toDate() && date <= reservation.end.toDate() ? false : true
-		);
-		// console.log(results);
-		if (results.indexOf(true) === -1) {
-			return false;
-		}
-		return true;
-	};
+	
 
 	const availableRoom = (date) => {
 		const orderedRooms = props.reser_info.map((reservation) =>
