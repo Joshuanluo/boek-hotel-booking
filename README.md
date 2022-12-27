@@ -1,5 +1,5 @@
 # Boek
-Boek is a hotel booking website that allows users to search for hotels in different cities by city name. Users can click on a hotel to select the desired dates, and then book a room after choosing the available dates.
+[Boek](https://boek-hotel-booking.web.app/) is a hotel booking website that allows users to search for hotels in different cities by city name. Users can click on a hotel to select the desired dates, and then book a room after choosing the available dates.
 
 This project is built with React, Firebase, Sass, MUI, and underscore.
 
